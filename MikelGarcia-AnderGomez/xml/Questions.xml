@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type= "text/xsl" href= "../styles/ShowXmlQuestions.xsl"?>
+<assessmentItems>
+  <assessmentItem subject="Tonto el que lo lea" author="agomez302@ikasle.ehu.eus">
+    <itemBody>
+      <p>Quien es mi compañero?</p>
+    </itemBody>
+    <correctResponse>
+      <response>Mikel</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>Markel</response>
+      <response>Yo mismo </response>
+      <response>Vadillo</response>
+    </incorrectResponses>
+  </assessmentItem>
+</assessmentItems>

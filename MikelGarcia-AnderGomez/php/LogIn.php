@@ -10,6 +10,29 @@ if (!isset($_SESSION)) {
     <?php include '../html/Head.html' ?>
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/ValidateFieldsQuestion.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="744923537767-5fe4ockh2sqa8pbgj34lig8so3vr1o4g.apps.googleusercontent.com">
+    <script>
+        function onSignIn(googleUser) {
+            var id = googleUser.getAuthResponse().id_token;
+
+            $.ajax({
+                type: "GET",
+                url: "../php/google.php",
+                data: {
+                    id: id
+                },
+                success: function(response) {
+                    var auth2 = gapi.auth2.getAuthInstance();
+                    auth2.signOut().then(function() {
+                        auth2.disconnect();
+                    });
+                    alert('Inicio de sesion correcto.');
+                    window.location.href = 'Layout.php';
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -32,6 +55,8 @@ if (!isset($_SESSION)) {
 
             </div>
             <input type="submit" value="Iniciar Sesion"><br><br>
+            <div align="center" class="g-signin2" data-onsuccess="onSignIn"></div>
+            <br>
             <a href='resetPassword.php'>¿Has olvidado la contraseña?</a>
             <br>
 
